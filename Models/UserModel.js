@@ -8,9 +8,9 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    
+
     cnic: {
-      type: String,
+      type: Number,
       required: true,
       unique: true,
     },

@@ -1,5 +1,4 @@
 const tokenModel = require("../../Models/tokenModel");
-const UserModel = require("../../Models/UserModel");
 const { sendToken } = require("../../Utils/EmailsToSend");
 const { generateOtp } = require("../../Utils/OTP");
 
@@ -19,7 +18,7 @@ const addToken = async (req, res) => {
 
   } catch (error) {
     console.error("Error in registerUser:", error.message);
-    return res.status(500).json({ message: "Internal server error", success: false });
+    return res.status(500).json({ message: error.message, success: false });
   }
 };
 

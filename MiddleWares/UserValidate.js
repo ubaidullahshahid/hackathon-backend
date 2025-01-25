@@ -5,10 +5,6 @@ const userRegisterValidate = (req, res) => {
   const { email, userName, password } = req.body;
 
   const schema = Joi.object({
-    userName: Joi.string().required().messages({
-      "string.min": "userName must be at least 3 characters",
-      "string.max": "userName must be at most 100 characters",
-    }),
     email: Joi.string().email().required(),
     password: Joi.string()
       .min(6)

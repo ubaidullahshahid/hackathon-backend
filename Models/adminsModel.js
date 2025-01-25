@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema(
+const AdminsSchema = new mongoose.Schema(
   {
 
     email: {
@@ -9,20 +9,19 @@ const UserSchema = new mongoose.Schema(
       unique: true,
     },
 
-    cnic: {
-      type: Number,
+    password: {
+      type: String,
       required: true,
-      unique: true,
     },
 
-    purpose: {
+    role: {
       type: String,
       required: true
-    },
+    }
 
   },
   { timestamps: true }
 );
 
-const UserModel = mongoose.model("users", UserSchema);
-module.exports = UserModel;
+const AdminsModel = mongoose.model("admins", AdminsSchema);
+module.exports = AdminsModel;

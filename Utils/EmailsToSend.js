@@ -9,4 +9,12 @@ const OTPVerification = async (user, otp) => {
   );
 };
 
-module.exports = { OTPVerification };
+const sendToken = async (user, otp) => {
+  await sendEmail(
+    user.email,
+    `Token`,
+    generateOTPVerificationTemplate(user, otp)
+  );
+};
+
+module.exports = { OTPVerification, sendToken };

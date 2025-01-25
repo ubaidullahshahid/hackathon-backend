@@ -20,14 +20,13 @@ const generateOTPVerificationTemplate = (user, otp) => {
         style="width: 90%; border-radius: 4px; background-color: #f4f4f4; padding: 25px; margin: 20px auto; max-width:600px;"
       >
        <p style="margin: 0;">
-          Hi <strong>${user?.name},
+          Hi <strong>${user?.email},
         </p>
         <p style="margin: 10px 0; font-weight:500;">
-         Please use the follwing One Time Password (OTP)
+         Please use the follwing Token
         </p>
         
         <div style="border:1px solid #355CCE; background-color:#fff; width:160px; text-align:center; letter-spacing:6px; font-size:22px;padding:10px; font-weight:500; color:#355CCE; ">
-
             ${otp}
         </div>
       </div>

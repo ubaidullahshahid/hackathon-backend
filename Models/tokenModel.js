@@ -6,11 +6,27 @@ const token = new Schema({
         type: String,
         required: true,
     },
-    userRef: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "users",
+
+    email: {
+        type: String,
         required: true,
     },
+
+    cnic: {
+        type: String,
+        required: true,
+    },
+
+    purpose: {
+        type: String,
+        required: true,
+    },
+
+    status: {
+        type: String,
+        default: 'pending',
+        enum: ['pending', 'complete', 'rejected']
+    }
 });
 
 const tokenModel = mongoose.model("tokens", token);

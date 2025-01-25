@@ -6,7 +6,7 @@ const app = express();
 const { routes } = require("./Routes/Routes");
 
 dotenv.config();
-app.use(express.json());
+app.use(express.json()); 
 
 app.use(
   cors({

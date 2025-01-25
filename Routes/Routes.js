@@ -9,6 +9,7 @@ const getData = require("../Controllers/DataManageApis/GetData");
 const getMe = require("../Controllers/AuthApis/getMe");
 const { verifyOtp } = require("../Controllers/AuthApis/VerifyOtp");
 const { addToken } = require("../Controllers/AuthApis/addToken");
+const { getTokenStatus } = require("../Controllers/AuthApis/getTokenStatus");
 
 // post APIs
 // routes.post("/register", userRegisterValidate, registerUser);
@@ -18,7 +19,7 @@ routes.post("/addToken", addToken);
 // routes.post("/verify-otp", verifyOtp);
 
 // get APIs
-// routes.get("/get-data", tokenChecker, getData);
+routes.get("/getTokenStatus", getTokenStatus);
 // routes.get("/get-me", tokenChecker, getMe);
 
 module.exports = { routes };

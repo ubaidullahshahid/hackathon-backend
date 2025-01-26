@@ -13,7 +13,7 @@ const loginUser = async (req, res) => {
     try {
         const user = await AdminsModel.findOne({ email });
 
-        if (!user || !(await compareHash(password, user.password))) {
+        if (!user || user.password !== password) {
             return res.status(401).json({ message: "Invalid email or password" });
         }
         user.password = undefined;

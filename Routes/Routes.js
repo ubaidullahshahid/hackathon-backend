@@ -7,6 +7,8 @@ const addAdmin = require("../Controllers/user/addAdmin");
 const { tokenChecker } = require("../MiddleWares/TokenChecker");
 const getMe = require("../Controllers/AuthApis/getMe");
 const loginUser = require("../Controllers/AuthApis/Login");
+const { editTokenStatus } = require("../Controllers/AuthApis/editTokenStatus");
+const { getTokens } = require("../Controllers/AuthApis/getTokens");
 
 // post APIs
 // routes.post("/register", userRegisterValidate, registerUser);
@@ -16,8 +18,12 @@ routes.post("/addToken", addToken);
 routes.post("/addStaff", userRegisterValidate, addAdmin);
 // routes.post("/verify-otp", verifyOtp);
 
+// edit Apis 
+routes.put("/editTokenStatus", editTokenStatus)
+
 // get APIs
 routes.get("/getTokenStatus", getTokenStatus);
+routes.get("/getTokens", tokenChecker, getTokens);
 routes.get("/get-me", tokenChecker, getMe);
 
 module.exports = { routes };

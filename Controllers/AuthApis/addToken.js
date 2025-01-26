@@ -18,7 +18,7 @@ const addToken = async (req, res) => {
 
   } catch (error) {
     console.error("Error in registerUser:", error.message);
-    return res.status(500).json({ message: error.message, success: false });
+    return res.status(500).json({ message: "Something went wrong!", success: false });
   }
 };
 

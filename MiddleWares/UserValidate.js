@@ -1,8 +1,8 @@
 const Joi = require("joi");
 
-const userRegisterValidate = (req, res) => {
+const userRegisterValidate = (req, res, next) => {
   console.log(req.body);
-  const { email, userName, password } = req.body;
+  const { email, password } = req.body;
 
   const schema = Joi.object({
     email: Joi.string().email().required(),
@@ -18,7 +18,7 @@ const userRegisterValidate = (req, res) => {
   });
 
   const { error } = schema.validate(
-    { email, userName, password },
+    { email, password },
     { abortEarly: false }
   );
 
@@ -29,7 +29,7 @@ const userRegisterValidate = (req, res) => {
     });
   }
 
-  return null;
+  next()
 };
 
 module.exports = userRegisterValidate;

@@ -4,10 +4,13 @@ const { addToken } = require("../Controllers/AuthApis/addToken");
 const { getTokenStatus } = require("../Controllers/AuthApis/getTokenStatus");
 const userRegisterValidate = require("../MiddleWares/UserValidate");
 const addAdmin = require("../Controllers/user/addAdmin");
+const { tokenChecker } = require("../MiddleWares/TokenChecker");
+const getMe = require("../Controllers/AuthApis/getMe");
+const loginUser = require("../Controllers/AuthApis/Login");
 
 // post APIs
 // routes.post("/register", userRegisterValidate, registerUser);
-// routes.post("/login", loginUser);
+routes.post("/login", loginUser);
 // routes.post("/add-data", tokenChecker, addData);
 routes.post("/addToken", addToken);
 routes.post("/addStaff", userRegisterValidate, addAdmin);
@@ -15,6 +18,6 @@ routes.post("/addStaff", userRegisterValidate, addAdmin);
 
 // get APIs
 routes.get("/getTokenStatus", getTokenStatus);
-// routes.get("/get-me", tokenChecker, getMe);
+routes.get("/get-me", tokenChecker, getMe);
 
 module.exports = { routes };

@@ -25,7 +25,7 @@ const token = new Schema({
     status: {
         type: String,
         default: 'pending',
-        enum: ['pending', 'complete', 'rejected']
+        enum: ['pending', 'approve', 'reject']
     }
 });
 

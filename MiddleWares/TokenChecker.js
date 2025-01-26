@@ -8,16 +8,16 @@ const tokenChecker = (req, res, next) => {
     return res
       .status(401)
       .json({ message: "Access denied. No token provided." });
-    }
-    
-    try {
-      const decoded = verifyJwt(token);
-      if(!decoded){
+  }
+
+  try {
+    const decoded = verifyJwt(token);
+    if (!decoded) {
       return res
         .status(401)
         .json({ message: "Token is invalid." });
     }
-    
+
     req.query.userId = decoded._id;
     next();
   } catch (err) {
@@ -26,9 +26,9 @@ const tokenChecker = (req, res, next) => {
         .status(401)
         .json({ message: "Token expired. Please login again." });
     }
-    
+
     return res.status(403).json({ message: "Invalid token." });
   }
 };
 
-module.exports = tokenChecker;
+module.exports = { tokenChecker };

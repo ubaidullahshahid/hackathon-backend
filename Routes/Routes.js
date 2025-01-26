@@ -11,12 +11,9 @@ const { editTokenStatus } = require("../Controllers/AuthApis/editTokenStatus");
 const { getTokens } = require("../Controllers/AuthApis/getTokens");
 
 // post APIs
-// routes.post("/register", userRegisterValidate, registerUser);
 routes.post("/login", loginUser);
-// routes.post("/add-data", tokenChecker, addData);
 routes.post("/addToken", addToken);
 routes.post("/addStaff", userRegisterValidate, addAdmin);
-// routes.post("/verify-otp", verifyOtp);
 
 // edit Apis 
 routes.put("/editTokenStatus", editTokenStatus)
